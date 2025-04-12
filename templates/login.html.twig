@@ -1,56 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Fakebook - Log In or Sign Up</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #eceff5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .fb-box {
-            background: white;
-            padding: 40px;
-            border: 1px solid #d3d6db;
-            border-radius: 8px;
-            width: 400px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #1877f2;
-            margin-bottom: 20px;
-        }
-        input[type="text"], input[type="password"] {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #ccd0d5;
-            border-radius: 6px;
-        }
-        .btns {
-            display: flex;
-            justify-content: space-between;
-        }
-        button {
-            padding: 12px 24px;
-            border: none;
-            border-radius: 6px;
-            color: white;
-            cursor: pointer;
-        }
-        .login-btn {
-            background-color: #1877f2;
-        }
-        .register-btn {
-            background-color: #42b72a;
-        }
-    </style>
+<link href="{{ asset('styles/app.css') }}" rel="stylesheet">
+    <title>connectory</title>
+
 </head>
 <body>
-<form method="POST" action="{{ path('auth_handler') }}">
+<div class="header">
+<table>
+    <tr>
+    <table style="width:100%; padding-top:0px;">
+        <tr>
+            <td style="width:50%; text-align:left;">
+                <img src="{{ asset('img/logo.png') }}" alt="Logo" style="height:50px; padding-bottom:15px;">
+            </td>
+            <td style="width:50%; text-align:right;">
+                <div style="margin-bottom:10px;">
+                    <input type="text" placeholder="Search..." style="padding:5px; width:70%;">
+                    <button type="button" class="search" style="background: linear-gradient(to top, #4B0082,rgb(146, 86, 206)); color:white; padding:5px 10px; text-decoration:none; border:1px solid #b366ff;">Search</button>
+                </div>
+                <div style="padding-bottom:10px;">
+                    <a href="/link1" style="color:#4B0082; padding:5px 10px; text-decoration:none;">login</a>
+                    <a href="/link2" style="color:#4B0082; padding:5px 10px; text-decoration:none;">sign up</a>
+                </div>
+                
+            </td>
+        </tr>
+        
+    </table>
+    
+</div>
+    </tr>
+    <tr>
+        <td>
+            <div class="content" style="background:white; height: 100vh;">
+            <div style="display: flex; width: 100%; height: 100%;">
+                <!-- Sidebar -->
+                <div style="width: 180px; padding: 20px; border-right: 1px solid #eee;">
+                    <div style="display:flex; align-items:center;">
+                        <img src={{ asset('usr/default.jpg') }} alt="Profile Picture" style="width:50px; margin-right:10px;">
+                        <div>
+                            <div><strong>Not Logged In</strong></div>
+                            <div style="font-size:14px;">Sign Up or Log in</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Main content -->
+                <div style="flex: 1; padding: 20px;">
+                    <div style="align-items:right;">
+                        <div class="post" style="border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; border-radius: 8px;">
+                            <div class="post-header" style="display: flex; align-items: center; margin-bottom: 10px;">
+                                <img src="{{ asset('usr/default.jpg') }}" alt="User Profile" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
+                                <div>
+                                    <div style="font-weight: bold;">Username</div>
+                                    <div style="color: #666; font-size: 12px;">{{ "now"|date("F j, Y") }}</div>
+                                </div>
+                            </div>
+                            <div class="post-content" style="margin-bottom: 10px;">
+                                <p>This is a sample post content. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                            <div class="post-actions" style="display: flex; gap: 15px; color: #666;">
+                                <div><i class="fa fa-heart"></i> Like</div>
+                                <div class="famfamfam-silk key_delete"></div>
+                                <div><i class="fa fa-comment"></i> Comment</div>
+                                <div><i class="fa fa-share"></i> Share</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="background:blue">Row 2</div>
+                </div>
+
+                <!-- Third column -->
+                <div style="width: 300px; padding: 10px; border-left: 1px solid #eee;">
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <div style="border: 1px solid #ccc; padding: 10px;">
+                            <h3 style="text-align:center">Site Updates</h3>
+                            <p>updates and stuff go here</p>
+                        </div>
+                        <div style="border: 1px solid #ccc; padding: 0px;">
+                            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 10px;">
+                                {% for i in 1..4 %}
+                                    <div style="text-align: center;">
+                                        <img src={{ asset('usr/default.jpg') }} alt="Profile" style="width: 100%; aspect-ratio: 1;">
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <h3 style="text-align: center; margin-top: 10px;">New People</h3>
+                        </div>
+                        <div style="border: 1px solid #ccc; padding: 10px;">
+                            <h3>Box 3</h3>
+                            <p>Content for box 3</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<!--<form method="POST" action="{{ path('auth_handler') }}">
     <div class="fb-box">
         <h1>fakebook</h1>
         <input type="text" name="username" placeholder="Email or phone number" required />
@@ -61,6 +111,4 @@
             <button type="submit" name="action" value="register" class="register-btn">Sign Up</button>
         </div>
     </div>
-</form>
-</body>
-</html>
+</form>-->

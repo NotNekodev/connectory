@@ -1,3 +1,94 @@
 body {
-    background-color: skyblue;
+    font-family: Arial, sans-serif;
+    background: #eceff5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+* {
+    font-family: Helvetica, 'Lucida Grande', sans-serif;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    height: 82px;
+    position: fixed;
+    top: 0;
+    background: rgba(255, 255, 255, 0);
+    z-index: 100;
+}
+.fb-box {
+    background: white;
+    padding: 40px;
+    border: 1px solid #d3d6db;
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+h1 {
+    color: #1877f2;
+    margin-bottom: 20px;
+}
+
+.content {
+    background-color: white;
+    width: 60%;
+    position: absolute;
+    top: 125px; /* Matches header height exactly */
+    left: 20%;
+    min-height: calc(100vh - 82px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-top: 1px solid #4B0082;
+}
+
+button[class="search"] {
+    background: #f0f2f5;
+    border: 1px solid #d3d6db;
+    color: #9153cf;
+    padding: 0 24px;
+    border-radius: 0px;
+    cursor: pointer;
+    height: 30px;
+    width: 70px;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccd0d5;
+    border-radius: 0px;
+    height: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    height: 150px;
+    position: absolute;
+    top: 5px;
+}
+
+
+.btns {
+    display: flex;
+    justify-content: space-between;
+}
+button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+}
+.login-btn {
+    background-color: #1877f2;
+}
+.register-btn {
+    background-color: #42b72a;
 }
