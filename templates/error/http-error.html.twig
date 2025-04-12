@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTTP Error {{ error_str }}; {{ error_num }}</title>
+    <style>
+        body {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1, p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>{{ error_num }} {{ error_str }}</h1> <br>
+        <hr> <br>
+        <p>The HTTP Error {{ error_num }} ({{ error_str }}) occurred</p> <br>
+    </div>
+</body>
+</html>

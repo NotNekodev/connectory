@@ -499,7 +499,7 @@
     </routine>
     <schema id="191" parent="1" name="main">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2025-04-12.15:38:28</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-04-12.19:24:39</LastIntrospectionLocalTimestamp>
     </schema>
     <argument id="192" parent="16">
       <ArgumentDirection>R</ArgumentDirection>
@@ -1705,32 +1705,37 @@
       <Position>1</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="584" parent="559" name="user_id">
+    <column id="584" parent="559" name="username">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StoredType>INTEGER|0s</StoredType>
+      <StoredType>VARCHAR(255)|0s</StoredType>
     </column>
-    <column id="585" parent="559" name="username">
+    <column id="585" parent="559" name="created">
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StoredType>VARCHAR(255)|0s</StoredType>
-    </column>
-    <column id="586" parent="559" name="created">
-      <NotNull>1</NotNull>
-      <Position>4</Position>
       <StoredType>DATETIME|0s</StoredType>
     </column>
-    <column id="587" parent="559" name="password_hash">
+    <column id="586" parent="559" name="password_hash">
       <NotNull>1</NotNull>
-      <Position>5</Position>
+      <Position>4</Position>
       <StoredType>VARCHAR(255)|0s</StoredType>
     </column>
-    <column id="588" parent="559" name="uuid">
+    <column id="587" parent="559" name="uuid">
       <NotNull>1</NotNull>
-      <Position>6</Position>
+      <Position>5</Position>
       <StoredType>CHAR(36)|0s</StoredType>
     </column>
-    <key id="589" parent="559">
+    <column id="588" parent="559" name="email">
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>VARCHAR(255)|0s</StoredType>
+    </column>
+    <column id="589" parent="559" name="telephone">
+      <DefaultExpression>NULL</DefaultExpression>
+      <Position>7</Position>
+      <StoredType>VARCHAR(255)|0s</StoredType>
+    </column>
+    <key id="590" parent="559">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>

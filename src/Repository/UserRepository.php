@@ -39,7 +39,7 @@ class UserRepository extends ServiceEntityRepository
 
     public function save(User $product): void
     {
-        $this->_em->persist($product);
-        $this->_em->flush();
+        $this->getEntityManager()->persist($product);
+        $this->getEntityManager()->flush();
     }
 }

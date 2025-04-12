@@ -37,15 +37,22 @@ class AuthController extends AbstractController
             return $this->register($email, $password);
         }
 
-        return new Response('Invalid action.', 400);
+        return $this->render('error/http-error.html.twig', [
+            'error_num' => Response::HTTP_BAD_REQUEST,
+            'error_str' => 'Bad request'
+        ]);
     }
 
     private function login(string $email, string $password): Response
     {
         $user = $this->userRepository->findUserByEmail($email);
         if (!$user) {
-            return new Response('User not found.', 404);
+            echo "<script type='text/javascript'>alert('User not found');</script>";
+            return $this->redirectToRoute('login', [], Response::HTTP_NOT_FOUND);
+
         }
+
+        $hashed_passwd = password_hash($password, PASSWORD_DEFAULT);
 
         $uid = $user->getId();
         $username = $user->getUsername();
@@ -54,10 +61,16 @@ class AuthController extends AbstractController
         $uuid = $user->getUuid();
         $uemail = $user->getEmail();
         if (!$user->getTelephone()) {
-            $user->setTelephone('');
+            $user->setTelephone('{NO DATA}');
         }
         $tel = $user->getTelephone();
 
+        if ($hashed_passwd !== $passwd_hash) {
+            echo "<script type='text/javascript'>alert('Wrong password');</script>";
+            return $this->redirectToRoute('login', [], Response::HTTP_UNAUTHORIZED);
+        }
+
+        $date_str = $created->format('Y-m-d H:i:s');
 
         return new Response("
             UserID: $uid </br>
@@ -66,11 +79,12 @@ class AuthController extends AbstractController
             UUID (GUID): $uuid </br>
             Email: $uemail </br>
             Telephone Number: $tel </br>
+            Created: $date_str </br>
         ");
     }
 
     private function register(string $email, string $password): Response
     {
-        return new Response("Unimplemented", Response::HTTP_SERVICE_UNAVAILABLE);
+        return $this->redirectToRoute('register', [], Response::HTTP_OK);
     }
 }
