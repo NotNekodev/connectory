@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -14,14 +15,11 @@ class User
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $user_id = null;
-
     #[ORM\Column(length: 255)]
     private ?string $username = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $created = null;
+    private ?DateTimeInterface $created = null;
 
     #[ORM\Column(length: 255)]
     private ?string $password_hash = null;
@@ -29,21 +27,16 @@ class User
     #[ORM\Column(type: Types::GUID)]
     private ?string $uuid = null;
 
+    #[ORM\Column(type: Types::STRING, length: 255)]
+    private ?string $email = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $telephone = null;
+    
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getUserId(): ?int
-    {
-        return $this->user_id;
-    }
-
-    public function setUserId(int $user_id): static
-    {
-        $this->user_id = $user_id;
-
-        return $this;
     }
 
     public function getUsername(): ?string
@@ -58,12 +51,12 @@ class User
         return $this;
     }
 
-    public function getCreated(): ?\DateTimeInterface
+    public function getCreated(): ?DateTimeInterface
     {
         return $this->created;
     }
 
-    public function setCreated(\DateTimeInterface $created): static
+    public function setCreated(DateTimeInterface $created): static
     {
         $this->created = $created;
 
@@ -90,6 +83,28 @@ class User
     public function setUuid(string $uuid): static
     {
         $this->uuid = $uuid;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): static {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getTelephone(): ?string
+    {
+        return $this->telephone;
+    }
+
+    public function setTelephone(?string $telephone): static
+    {
+        $this->telephone = $telephone;
 
         return $this;
     }
