@@ -28,7 +28,6 @@ class RegisterController extends AbstractController {
 
     #[Route('/register_handler', name: 'register_handler', methods: ['POST'])]
     public function register_handler(Request $request): Response {
-        echo "<script type='text/javascript'>alert('tets');</script>";
         $username = $request->request->get('username');
         $email = $request->request->get('email');
         $telephone = $request->request->get('phone');
@@ -45,7 +44,7 @@ class RegisterController extends AbstractController {
         $user->setUsername($username);
         $user->setEmail($email);
         $user->setTelephone($telephone);
-        $user->setPasswordHash(password_hash($passwd, PASSWORD_DEFAULT));
+        $user->setPasswordHash(password_hash($passwd, PASSWORD_BCRYPT));
         $user->setCreated(new DateTime());
         $user->setUuid(Uuid::uuid4()->toString());
 

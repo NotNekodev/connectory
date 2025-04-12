@@ -5,18 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="840657ce-fca6-4852-9efa-469d74a75ed1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/RegisterController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/error/http-error.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/register.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e7cdf92e-335a-458d-ac78-966c46370461.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e7cdf92e-335a-458d-ac78-966c46370461.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webthingy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webthingy.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RootController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RootController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,7 +211,8 @@
       <workItem from="1744360972622" duration="715000" />
       <workItem from="1744466188017" duration="191000" />
       <workItem from="1744466393105" duration="439000" />
-      <workItem from="1744469892286" duration="10255000" />
+      <workItem from="1744469892286" duration="10976000" />
+      <workItem from="1744493580758" duration="4747000" />
     </task>
     <servers />
   </component>
