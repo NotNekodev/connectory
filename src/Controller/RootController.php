@@ -14,16 +14,25 @@ class RootController extends AbstractController {
 
         $token = $request->cookies->get('connectory_session');
         if (!$token) {
-            return $this->redirectToRoute('login');
+            return $this->render('index.html.twig', [
+                'user' => "Not logged in",
+                'usrtxt2' => "Sign up or login",
+            ]);
         }
 
         $session = $repo->find($token);
         if (!$session) {
-            return $this->redirectToRoute('login');
+            return $this->render('index.html.twig', [
+                'user' => "Not logged in",
+                'usrtxt2' => "Sign up or login",
+            ]);
         }
 
         $user = $session->getUser();
 
-        return new Response("Hello, " . $user->getUsername() . "!", Response::HTTP_OK);
+        return $this->render('index.html.twig', [
+            'user' => $user->getUsername(),
+            'usrtxt2' => "(".$user->getId().")",
+        ]);
     }
 }

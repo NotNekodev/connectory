@@ -27,7 +27,11 @@ class AuthController extends AbstractController
 
     #[Route('/login', name: 'login')]
     public function login_router(): Response {
-        return $this->render('login.html.twig');
+        // return $this->render('index.html.twig');
+        return $this->render('error/http-error.html.twig', [
+            'error_num' => Response::HTTP_I_AM_A_TEAPOT,
+            'error_str' => 'I am a teapot'
+        ]);
     }
 
     /**
