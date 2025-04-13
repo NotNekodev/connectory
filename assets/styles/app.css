@@ -82,7 +82,7 @@ input[type="text"], input[type="password"] {
 button {
     padding: 12px 24px;
     border: none;
-    border-radius: 6px;
+    border-radius: 0px;
     color: white;
     cursor: pointer;
 }

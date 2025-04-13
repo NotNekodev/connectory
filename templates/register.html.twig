@@ -1,20 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Register</title>
-
+    <link href="{{ asset('styles/app.css') }}" rel="stylesheet">
+    <title>connectory</title>
 </head>
 <body>
-<div>
-    <form method="POST" action="{{ path('register_handler') }}">
-        <input type="text" name="username" placeholder="Username" required />
-        <input type="text" name="email" placeholder="E-Mail Address" required />
-        <input type="text" name="phone" placeholder="+1 " />
-        <input type="password" name="password" placeholder="Password" required />
-        <input type="password" name="confirm_password" placeholder="Confirm Password" required />
-
-        <button type="submit" name="button">Register</button>
-    </form>
+<div class="header">
+    <table style="width:100%;">
+        <tr>
+            <td style="width:50%; text-align:left;">
+                <img src="{{ asset('img/logo.png') }}" alt="Logo" style="height:50px; padding-bottom:15px;">
+            </td>
+            <td style="width:50%; text-align:right;">
+                <div style="margin-bottom:10px;">
+                    <input type="text" placeholder="Search..." style="padding:5px; width:70%;">
+                    <button type="button" class="search" style="background: linear-gradient(to top, #4B0082,rgb(146, 86, 206)); color:white; padding:5px 10px; text-decoration:none; border:1px solid #b366ff;">Search</button>
+                </div>
+                <div style="padding-bottom:10px;">
+                    <a href="{{ path('login') }}" style="color:#4B0082; padding:5px 10px; text-decoration:none;">login</a>
+                    <a href="{{ path('register') }}" style="color:#4B0082; padding:5px 10px; text-decoration:none;">sign up</a>
+                </div>
+            </td>
+        </tr>
+    </table>
 </div>
-</body>
-</html>
+
+<div class="content" style="background:white; height: 100vh;">
+    <div style="display: flex; width: 100%; height: 100%;">
+
+        <!-- Main content -->
+        <div style="flex: 1; padding: 10px;">
+            <div>
+                <div style="border: 1px solid #ccc; padding: 15px; height: 200px; margin-bottom: 20px;">
+                    <h3>Registration!!!!</h3>
+                    <p>information about the site and stuff here</p>
+                </div>
+            </div>
+        </div>
+
+<!-- Third column -->
+<div style="width: 300px; padding: 10px; border-left: 1px solid #eee;">
+    <div style="background: #f7f7f7; border: 1px solid #ccc; padding: 15px; margin-bottom: 20px;">
+        <div style="margin-bottom: 15px;">
+            <form method="POST" action="{{ path('register_handler') }}">
+                <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Username:</h3>
+                <input type="text" 
+                    name="username" 
+                    placeholder="Username" 
+                    required 
+                    style="width: 95%;
+                        padding: 6px;
+                        border: 1px solid #ccc;
+                        border-radius: 0;
+                        margin-bottom: 5px;" />
+
+                <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Email Address:</h3>
+                <input type="text" 
+                    name="email" 
+                    placeholder="E-Mail Address" 
+                    required 
+                    style="width: 95%;
+                        padding: 6px;
+                        border: 1px solid #ccc;
+                        border-radius: 0;
+                        margin-bottom: 5px;" />
+
+                <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Phone Number:</h3>
+                <input type="text" 
+                    name="phone" 
+                    placeholder="+1 " 
+                    style="width: 95%;
+                        padding: 6px;
+                        border: 1px solid #ccc;
+                        border-radius: 0;
+                        margin-bottom: 5px;" />
+
+                <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Password:</h3>
+                <input type="password" 
+                    name="password" 
+                    placeholder="Password"
+                    required 
+                    style="width: 95%;
+                        padding: 6px;
+                        border: 1px solid #ccc;
+                        border-radius: 0;
+                        margin-bottom: 5px;" />
+
+                <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Confirm Password:</h3>
+                <input type="password" 
+                    name="confirm_password" 
+                    placeholder="Confirm Password"
+                    required 
+                    style="width: 95%;
+                        padding: 6px;
+                        border: 1px solid #ccc;
+                        border-radius: 0;
+                        margin-bottom: 12px;" />
+                
+                <button type="submit" 
+                    name="button" 
+                    style="width: 100%;
+                        background: linear-gradient(to top, #4B0082, rgb(146, 86, 206));
+                        color: white;
+                        padding: 6px 0;
+                        border: none;
+                        border-radius: 0;
+                        cursor: pointer;">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <div style="border: 1px solid #ccc; padding: 15px;">
+        <h3>Site Updates</h3>
+        <p>updates and stuff go here</p>
+    </div>
+</div>
