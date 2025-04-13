@@ -43,69 +43,80 @@
     <div style="background: #f7f7f7; border: 1px solid #ccc; padding: 15px; margin-bottom: 20px;">
         <div style="margin-bottom: 15px;">
             <form method="POST" action="{{ path('register_handler') }}">
-                <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Username:</h3>
-                <input type="text" 
-                    name="username" 
-                    placeholder="Username" 
-                    required 
-                    style="width: 95%;
-                        padding: 6px;
-                        border: 1px solid #ccc;
-                        border-radius: 0;
-                        margin-bottom: 5px;" />
+            <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Username:</h3>
+            <input type="text" 
+                name="username" 
+                placeholder="Username" 
+                required 
+                style="width: 95%;
+                padding: 6px;
+                border: 1px solid #ccc;
+                border-radius: 0;
+                margin-bottom: 5px;" />
 
-                <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Email Address:</h3>
-                <input type="text" 
-                    name="email" 
-                    placeholder="E-Mail Address" 
-                    required 
-                    style="width: 95%;
-                        padding: 6px;
-                        border: 1px solid #ccc;
-                        border-radius: 0;
-                        margin-bottom: 5px;" />
+            <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Email Address:</h3>
+            <input type="text" 
+                name="email" 
+                placeholder="E-Mail Address" 
+                required 
+                style="width: 95%;
+                padding: 6px;
+                border: 1px solid #ccc;
+                border-radius: 0;
+                margin-bottom: 5px;" />
 
-                <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Phone Number:</h3>
-                <input type="text" 
-                    name="phone" 
-                    placeholder="+1 " 
-                    style="width: 95%;
-                        padding: 6px;
-                        border: 1px solid #ccc;
-                        border-radius: 0;
-                        margin-bottom: 5px;" />
+            <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Phone Number:</h3>
+            <input type="text" 
+                name="phone" 
+                placeholder="+1 " 
+                style="width: 95%;
+                padding: 6px;
+                border: 1px solid #ccc;
+                border-radius: 0;
+                margin-bottom: 5px;" />
 
-                <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Password:</h3>
-                <input type="password" 
-                    name="password" 
-                    placeholder="Password"
-                    required 
-                    style="width: 95%;
-                        padding: 6px;
-                        border: 1px solid #ccc;
-                        border-radius: 0;
-                        margin-bottom: 5px;" />
+            <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Password:</h3>
+            <input type="password" 
+                name="password" 
+                placeholder="Password"
+                required 
+                style="width: 95%;
+                padding: 6px;
+                border: 1px solid #ccc;
+                border-radius: 0;
+                margin-bottom: 5px;" />
 
-                <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Confirm Password:</h3>
-                <input type="password" 
-                    name="confirm_password" 
-                    placeholder="Confirm Password"
-                    required 
-                    style="width: 95%;
-                        padding: 6px;
-                        border: 1px solid #ccc;
-                        border-radius: 0;
-                        margin-bottom: 12px;" />
+            <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Confirm Password:</h3>
+            <input type="password" 
+                name="confirm_password" 
+                placeholder="Confirm Password"
+                required 
+                style="width: 95%;
+                padding: 6px;
+                border: 1px solid #ccc;
+                border-radius: 0;
+                margin-bottom: 12px;" />
+
+            <div style="margin-bottom: 12px;">
+                <input type="checkbox" 
+                name="remember_me" 
+                id="remember_me" 
+                style="margin-right: 5px;" />
+                <label for="remember_me" 
+                style="color: #4B0082; 
+                font-size: 14px;">Remember me</label>
+            </div>
+            
+            <button type="submit" 
+                name="button" 
+                style="width: 100%;
+                background: linear-gradient(to top, #4B0082, rgb(146, 86, 206));
+                color: white;
+                padding: 6px 0;
+                border: none;
+                border-radius: 0;
+                cursor: pointer;">Register</button>
                 
-                <button type="submit" 
-                    name="button" 
-                    style="width: 100%;
-                        background: linear-gradient(to top, #4B0082, rgb(146, 86, 206));
-                        color: white;
-                        padding: 6px 0;
-                        border: none;
-                        border-radius: 0;
-                        cursor: pointer;">Register</button>
             </form>
         </div>
     </div>
