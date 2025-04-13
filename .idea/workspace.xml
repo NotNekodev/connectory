@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="840657ce-fca6-4852-9efa-469d74a75ed1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/Authentication/LogoutController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Authentication/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Authentication/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Authentication/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Authentication/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Authentication/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Authentication/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RootController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RootController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register.html.twig" afterDir="false" />
     </list>
@@ -219,6 +217,7 @@
       <workItem from="1744560747950" duration="166000" />
       <workItem from="1744560926388" duration="1342000" />
       <workItem from="1744562871058" duration="1460000" />
+      <workItem from="1744584888539" duration="2661000" />
     </task>
     <servers />
   </component>

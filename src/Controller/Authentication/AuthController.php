@@ -35,7 +35,7 @@ class AuthController extends AbstractController
         $email = $request->request->get('username');
         $password = $request->request->get('password');
 
-        $remember_me = $request->request->get('remember_me', '0') === '1';
+        $remember_me = $request->request->get('remember_me') === 'on';
 
         return $this->login($email, $password, $remember_me, $request);
     }
@@ -45,11 +45,37 @@ class AuthController extends AbstractController
      */
     private function login(string $email, string $password, bool $remember_me, Request $request): Response
     {
-        $user = $this->userRepository->findUserByEmail($email);
-        if (!$user) {
-            echo "<script type='text/javascript'>alert('User not found');</script>";
-            return $this->redirectToRoute('login', []);
+        $errors = [];
 
+        if (empty($email)) {
+            $errors['username'] = 'Email or username cannot be empty';
+        }
+        
+        if (empty($password)) {
+            $errors['password'] = 'Password cannot be empty';
+        }
+        
+        if (!empty($errors)) {
+            return $this->render('login.html.twig', [
+                'errors' => $errors,
+                'last_username' => $email
+            ]);
+        }
+
+        $user = null;
+
+        if (preg_match('/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/', $email)) {
+            $user = $this->userRepository->findUserByEmail($email);
+        } else {
+            $user = $this->userRepository->findOneBy(['username' => $email]);
+        }
+        
+        if (!$user) {
+            $errors['username'] = 'User not found';
+            return $this->render('login.html.twig', [
+                'errors' => $errors,
+                'last_username' => $email
+            ]);
         }
 
         $uid = $user->getId();
@@ -63,9 +89,12 @@ class AuthController extends AbstractController
         }
         $tel = $user->getTelephone();
 
-
         if (!password_verify($password, $passwd_hash)) {
-            return $this->redirectToRoute('login', []);
+            $errors['password'] = 'Invalid password';
+            return $this->render('login.html.twig', [
+                'errors' => $errors,
+                'last_username' => $email
+            ]);
         }
         $token = bin2hex(random_bytes(32));
 
@@ -77,22 +106,12 @@ class AuthController extends AbstractController
 
         $this->sessionRepository->save($session);
 
-
         if ($remember_me) {
-            /*setcookie('connectory_session', $token, [
-                'path' => '/',
-                'secure' => true,
-                'httponly' => true,
-                'samesite' => 'Strict',
-                'expires' => time() + 60 * 60 * 24 * 365 * 5 // 5 years
-            ]);*/
             setcookie('connectory_session', $token, time() + 60 * 60 * 24 * 365 * 5, '/', '', false, true);
-
         } else {
             setcookie('connectory_session', $token, 0, '/', '', false, true);
         }
 
         return $this->redirectToRoute('root');
     }
-
 }

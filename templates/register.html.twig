@@ -3,6 +3,17 @@
 <head>
     <link href="{{ asset('styles/app.css') }}" rel="stylesheet">
     <title>connectory</title>
+    <style>
+        .error-field {
+            border: 1px solid #ff0000 !important;
+        }
+        .error-message {
+            color: #ff0000;
+            font-size: 12px;
+            margin-bottom: 8px;
+            min-height: 14px;
+        }
+    </style>
 </head>
 <body>
 <div class="header">
@@ -42,70 +53,88 @@
 <div style="width: 300px; padding: 10px; border-left: 1px solid #eee;">
     <div style="background: #f7f7f7; border: 1px solid #ccc; padding: 15px; margin-bottom: 20px;">
         <div style="margin-bottom: 15px;">
-            <form method="POST" action="{{ path('register_handler') }}">
-            <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Username:</h3>
-            <input type="text" 
-                name="username" 
-                placeholder="Username" 
-                required 
-                style="width: 95%;
-                padding: 6px;
-                border: 1px solid #ccc;
-                border-radius: 0;
-                margin-bottom: 5px;" />
+            <form method="POST" action="{{ path('register_handler') }}" id="registrationForm">
+                <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Username:</h3>
+                <input type="text"
+                       name="username"
+                       id="username_field"
+                       placeholder="Username"
+                       required
+                       value="{{ old_data.username|default('') }}"
+                       class="{{ errors.username is defined ? 'error-field' : '' }}"
+                       style="width: 95%;
+                           padding: 6px;
+                           border: 1px solid #ccc;
+                           border-radius: 0;
+                           margin-bottom: 5px;" />
+                <div id="errortxt_field_username" class="error-message">{{ errors.username|default('') }}</div>
 
-            <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Email Address:</h3>
-            <input type="text" 
-                name="email" 
-                placeholder="E-Mail Address" 
-                required 
-                style="width: 95%;
-                padding: 6px;
-                border: 1px solid #ccc;
-                border-radius: 0;
-                margin-bottom: 5px;" />
+                <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Email Address:</h3>
+                <input type="text"
+                       name="email"
+                       id="email_field"
+                       placeholder="E-Mail Address"
+                       required
+                       value="{{ old_data.email|default('') }}"
+                       class="{{ errors.email is defined ? 'error-field' : '' }}"
+                       style="width: 95%;
+                           padding: 6px;
+                           border: 1px solid #ccc;
+                           border-radius: 0;
+                           margin-bottom: 5px;" />
+                <div id="errortxt_field_email" class="error-message">{{ errors.email|default('') }}</div>
 
-            <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Phone Number:</h3>
-            <input type="text" 
-                name="phone" 
-                placeholder="+1 " 
-                style="width: 95%;
-                padding: 6px;
-                border: 1px solid #ccc;
-                border-radius: 0;
-                margin-bottom: 5px;" />
+                <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Phone Number:</h3>
+                <input type="text"
+                       name="phone"
+                       id="phone_field"
+                       placeholder="+1 "
+                       value="{{ old_data.phone|default('') }}"
+                       class="{{ errors.phone is defined ? 'error-field' : '' }}"
+                       style="width: 95%;
+                           padding: 6px;
+                           border: 1px solid #ccc;
+                           border-radius: 0;
+                           margin-bottom: 5px;" />
+                <div id="errortxt_field_phone" class="error-message">{{ errors.phone|default('') }}</div>
 
-            <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Password:</h3>
-            <input type="password" 
-                name="password" 
-                placeholder="Password"
-                required 
-                style="width: 95%;
-                padding: 6px;
-                border: 1px solid #ccc;
-                border-radius: 0;
-                margin-bottom: 5px;" />
+                <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Password:</h3>
+                <input type="password"
+                       name="password"
+                       id="password_field"
+                       placeholder="Password"
+                       required
+                       class="{{ errors.password is defined ? 'error-field' : '' }}"
+                       style="width: 95%;
+                           padding: 6px;
+                           border: 1px solid #ccc;
+                           border-radius: 0;
+                           margin-bottom: 5px;" />
+                <div id="errortxt_field_password" class="error-message">{{ errors.password|default('') }}</div>
 
-            <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Confirm Password:</h3>
-            <input type="password" 
-                name="confirm_password" 
-                placeholder="Confirm Password"
-                required 
-                style="width: 95%;
-                padding: 6px;
-                border: 1px solid #ccc;
-                border-radius: 0;
-                margin-bottom: 12px;" />
+                <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Confirm Password:</h3>
+                <input type="password"
+                       name="confirm_password"
+                       id="confirm_password_field"
+                       placeholder="Confirm Password"
+                       required
+                       class="{{ errors.confirm_password is defined ? 'error-field' : '' }}"
+                       style="width: 95%;
+                           padding: 6px;
+                           border: 1px solid #ccc;
+                           border-radius: 0;
+                           margin-bottom: 5px;" />
+                <div id="errortxt_field_confirm_password" class="error-message">{{ errors.confirm_password|default('') }}</div>
             
-            <button type="submit" 
-                name="button" 
-                style="width: 100%;
-                background: linear-gradient(to top, #4B0082, rgb(146, 86, 206));
-                color: white;
-                padding: 6px 0;
-                border: none;
-                border-radius: 0;
-                cursor: pointer;">Register</button>
+                <button type="submit" 
+                    name="button" 
+                    style="width: 100%;
+                    background: linear-gradient(to top, #4B0082, rgb(146, 86, 206));
+                    color: white;
+                    padding: 6px 0;
+                    border: none;
+                    border-radius: 0;
+                    cursor: pointer;">Register</button>
                 
             </form>
         </div>
@@ -118,5 +147,115 @@
 </div>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('registrationForm');
+    
+    const fields = {
+        username: {
+            element: document.getElementById('username_field'),
+            error: document.getElementById('errortxt_field_username'),
+            validate: function(value) {
+                if (!value) return 'Username cannot be empty';
+                if (value.length < 3) return 'Username must be at least 3 characters';
+                return '';
+            }
+        },
+        email: {
+            element: document.getElementById('email_field'),
+            error: document.getElementById('errortxt_field_email'),
+            validate: function(value) {
+                if (!value) return 'Email cannot be empty';
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(value)) return 'Invalid email format';
+                return '';
+            }
+        },
+        phone: {
+            element: document.getElementById('phone_field'),
+            error: document.getElementById('errortxt_field_phone'),
+            validate: function(value) {
+                if (!value) return ''; // Phone is optional
+                const phoneRegex = /^\+?[0-9\s\-\(\)]{8,20}$/;
+                if (!phoneRegex.test(value)) return 'Invalid phone number format';
+                return '';
+            }
+        },
+        password: {
+            element: document.getElementById('password_field'),
+            error: document.getElementById('errortxt_field_password'),
+            validate: function(value) {
+                if (!value) return 'Password cannot be empty';
+                if (value.length < 8) return 'Password must be at least 8 characters';
+                return '';
+            }
+        },
+        confirm_password: {
+            element: document.getElementById('confirm_password_field'),
+            error: document.getElementById('errortxt_field_confirm_password'),
+            validate: function(value) {
+                const password = document.getElementById('password_field').value;
+                if (value !== password) return 'Passwords do not match';
+                return '';
+            }
+        }
+    };
+    
+    // Add input event listeners to clear errors when fields are changed
+    for (const key in fields) {
+        fields[key].element.addEventListener('input', function() {
+            fields[key].element.classList.remove('error-field');
+            fields[key].error.textContent = '';
+            
+            // Special case for password and confirm password
+            if (key === 'password' || key === 'confirm_password') {
+                // Re-validate confirm password when either password field changes
+                const confirmField = fields['confirm_password'];
+                const passwordField = fields['password'];
+                
+                // Only check if both fields have values
+                if (confirmField.element.value && passwordField.element.value) {
+                    const errorMessage = confirmField.validate(confirmField.element.value);
+                    if (errorMessage) {
+                        confirmField.element.classList.add('error-field');
+                        confirmField.error.textContent = errorMessage;
+                    } else {
+                        confirmField.element.classList.remove('error-field');
+                        confirmField.error.textContent = '';
+                    }
+                }
+            }
+        });
+    }
+    
+    form.addEventListener('submit', function(e) {
+        let hasErrors = false;
+        
+        // Clear previous errors
+        for (const key in fields) {
+            fields[key].element.classList.remove('error-field');
+            fields[key].error.textContent = '';
+        }
+        
+        // Validate all fields
+        for (const key in fields) {
+            const field = fields[key];
+            const errorMessage = field.validate(field.element.value);
+            
+            if (errorMessage) {
+                field.element.classList.add('error-field');
+                field.error.textContent = errorMessage;
+                hasErrors = true;
+            }
+        }
+        
+        if (hasErrors) {
+            e.preventDefault();
+        }
+    });
+});
+</script>
+
 </body>
 </html>

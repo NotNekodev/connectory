@@ -3,6 +3,16 @@
 <head>
     <link href="{{ asset('styles/app.css') }}" rel="stylesheet">
     <title>connectory</title>
+    <style>
+        .error-field {
+            border: 1px solid #ff0000 !important;
+        }
+        .error-message {
+            color: #ff0000;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+    </style>
 </head>
 <body>
 <div class="header">
@@ -42,30 +52,37 @@
 <div style="width: 300px; padding: 10px; border-left: 1px solid #eee;">
     <div style="background: #f7f7f7; border: 1px solid #ccc; padding: 15px; margin-bottom: 20px;">
         <div style="margin-bottom: 15px;">
-            <form method="POST" action="{{ path('auth_handler') }}">
+            <form method="POST" action="{{ path('auth_handler') }}" id="loginForm">
             <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Email or Username:</h3>
             <input type="text" 
+                id="username"
                 name="username" 
                 placeholder="example@mail.com" 
                 required 
+                value="{{ last_username|default('') }}"
+                class="{{ errors is defined and errors['username'] is defined ? 'error-field' : '' }}"
                 style="width: 95%;
                     padding: 6px;
                     border: 1px solid #ccc;
                     border-radius: 0;
-                    margin-bottom: 12px;" />
+                    margin-bottom: 5px;" />
+            <div id="username_error" class="error-message">{{ errors.username|default('') }}</div>
             
             <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Password:</h3>
             <input type="password" 
+                id="password"
                 name="password" 
                 required 
+                class="{{ errors is defined and errors['password'] is defined ? 'error-field' : '' }}"
                 style="width: 95%;
                     padding: 6px;
                     border: 1px solid #ccc;
                     border-radius: 0;
-                    margin-bottom: 12px;" />
+                    margin-bottom: 5px;" />
+            <div id="password_error" class="error-message">{{ errors.password|default('') }}</div>
             
             <label style="display: block; margin-bottom: 12px;">
-                <input type="checkbox" style="vertical-align: middle;" />
+                <input type="checkbox" name="remember_me" style="vertical-align: middle;" />
                 <span style="font-size: 13px; color: #666; border-radius:0px;">Remember Me</span>
             </label>
             
@@ -93,12 +110,60 @@
     </div>
 </div>
             
-            </div>
-            </div>
         </div>
     </div>
 </div>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('loginForm');
+    
+    // Get the input fields and error message elements
+    const username = document.getElementById('username');
+    const password = document.getElementById('password');
+    const usernameError = document.getElementById('username_error');
+    const passwordError = document.getElementById('password_error');
+    
+    // Add input event listeners to clear errors when fields are changed
+    username.addEventListener('input', function() {
+        username.classList.remove('error-field');
+        usernameError.textContent = '';
+    });
+    
+    password.addEventListener('input', function() {
+        password.classList.remove('error-field');
+        passwordError.textContent = '';
+    });
+    
+    loginForm.addEventListener('submit', function(e) {
+        let hasErrors = false;
+        
+        // Clear previous errors
+        username.classList.remove('error-field');
+        password.classList.remove('error-field');
+        usernameError.textContent = '';
+        passwordError.textContent = '';
+        
+        // Validate username
+        if (!username.value.trim()) {
+            username.classList.add('error-field');
+            usernameError.textContent = 'Email or username cannot be empty';
+            hasErrors = true;
+        }
+        
+        // Validate password
+        if (!password.value) {
+            password.classList.add('error-field');
+            passwordError.textContent = 'Password cannot be empty';
+            hasErrors = true;
+        }
+        
+        if (hasErrors) {
+            e.preventDefault();
+        }
+    });
+});
+</script>
 
 </body>
 </html>
