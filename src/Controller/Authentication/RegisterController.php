@@ -1,17 +1,16 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Authentication;
 
 use App\Entity\User;
 use App\Repository\UserRepository;
 use DateTime;
+use Ramsey\Uuid\Guid\GuidInterface;
 use Ramsey\Uuid\Uuid;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Ramsey\Uuid\Guid\Guid;
-use Ramsey\Uuid\Guid\GuidInterface;
 
 class RegisterController extends AbstractController {
 

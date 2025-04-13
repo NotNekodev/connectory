@@ -1,12 +1,11 @@
 <?php
-namespace App\Controller;
+
+
+namespace App\Controller\Authentication;
 
 use App\Entity\Session;
-use App\Entity\User;
 use App\Repository\SessionRepository;
 use App\Repository\UserRepository;
-use DateTimeImmutable;
-use Doctrine\Persistence\ManagerRegistry;
 use Random\RandomException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,14 +24,6 @@ class AuthController extends AbstractController
         $this->sessionRepository = $sessionRepository;
     }
 
-    #[Route('/login', name: 'login')]
-    public function login_router(): Response {
-        // return $this->render('index.html.twig');
-        return $this->render('error/http-error.html.twig', [
-            'error_num' => Response::HTTP_I_AM_A_TEAPOT,
-            'error_str' => 'I am a teapot'
-        ]);
-    }
 
     /**
      * @throws RandomException
@@ -46,8 +37,6 @@ class AuthController extends AbstractController
 
         if ($action === 'login') {
             return $this->login($email, $password);
-        } elseif ($action === 'register') {
-            return $this->register($email, $password);
         }
 
         return $this->render('error/http-error.html.twig', [
@@ -68,8 +57,6 @@ class AuthController extends AbstractController
 
         }
 
-        $hashed_passwd = password_hash($password, PASSWORD_BCRYPT);
-
         $uid = $user->getId();
         $username = $user->getUsername();
         $created = $user->getCreated();
@@ -85,9 +72,6 @@ class AuthController extends AbstractController
         if (!password_verify($password, $passwd_hash)) {
             return $this->redirectToRoute('login', []);
         }
-
-        $date_str = $created->format('Y-m-d H:i:s');
-
         $token = bin2hex(random_bytes(32));
 
         $session = new Session();
@@ -105,19 +89,7 @@ class AuthController extends AbstractController
             'samesite' => 'Strict'
         ]);
 
-        return new Response("
-            UserID: $uid </br>
-            Username: $username </br>
-            Password hash: $passwd_hash </br>
-            UUID (GUID): $uuid </br>
-            Email: $uemail </br>
-            Telephone Number: $tel </br>
-            Created: $date_str </br>
-        ");
+        return $this->redirectToRoute('root');
     }
 
-    private function register(string $email, string $password): Response
-    {
-        return $this->redirectToRoute('register', []);
-    }
 }
