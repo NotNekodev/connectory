@@ -177,32 +177,11 @@
                 
                 <!-- Main content -->
                 <div style="flex: 1; padding: 20px;">
-                    <div style="align-items:right;">
-                        <div class="post" style="border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; border-radius: 8px;">
-                            <div class="post-header" style="display: flex; align-items: center; margin-bottom: 10px;">
-                                <img src="{{ asset('usr/default.jpg') }}" alt="User Profile" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
-                                <div>
-                                    <div style="font-weight: bold;">Username</div>
-                                    <div style="color: #666; font-size: 12px;">{{ "now"|date("F j, Y") }}</div>
-                                </div>
-                            </div>
-                            <div class="post-content" style="margin-bottom: 10px;">
-                                <p>This is a sample post content. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-<div class="post-actions" style="display: flex; gap: 15px; color: #666;">
-    <div>
-        <img src="{{ asset(icons.thumbs_up) }}" alt="Like" style="width: 16px; height: 16px;"> Like
-    </div>
-    <div>
-        <img src="{{ asset(icons.comment) }}" alt="Comment" style="width: 16px; height: 16px;"> Comment
-    </div>
-    <div>
-        <img src="{{ asset(icons.link) }}" alt="Share" style="width: 16px; height: 16px;"> Share
-    </div>
-</div>
+                    <div>
+                        <div style="border: 1px solid #ccc; padding: 15px;height:200px; margin-bottom: 20px;">
+                            
                         </div>
                     </div>
-                    <div style="background:blue">Row 2</div>
                 </div>
 
                 <!-- Third column -->
@@ -212,16 +191,7 @@
                             <h3 style="text-align:center">Site Updates</h3>
                             <p>updates and stuff go here</p>
                         </div>
-                        <div style="border: 1px solid #ccc; padding: 0px;">
-                            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 10px;">
-                                {% for i in 1..4 %}
-                                    <div style="text-align: center;">
-                                        <img src={{ asset('usr/default.jpg') }} alt="Profile" style="width: 100%; aspect-ratio: 1;">
-                                    </div>
-                                {% endfor %}
-                            </div>
-                            <h3 style="text-align: center; margin-top: 10px;">New People</h3>
-                        </div>
+                        
                         <div style="border: 1px solid #ccc; padding: 10px;">
                             <h3>Box 3</h3>
                             <p>Content for box 3</p>
