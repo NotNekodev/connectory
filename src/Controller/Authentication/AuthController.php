@@ -6,6 +6,7 @@ namespace App\Controller\Authentication;
 use App\Entity\Session;
 use App\Repository\SessionRepository;
 use App\Repository\UserRepository;
+use DateTimeImmutable;
 use Random\RandomException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,22 +34,16 @@ class AuthController extends AbstractController
     {
         $email = $request->request->get('username');
         $password = $request->request->get('password');
-        $action = $request->request->get('action');
 
-        if ($action === 'login') {
-            return $this->login($email, $password);
-        }
+        $remember_me = $request->request->get('remember_me', '0') === '1';
 
-        return $this->render('error/http-error.html.twig', [
-            'error_num' => Response::HTTP_BAD_REQUEST,
-            'error_str' => 'Bad request'
-        ]);
+        return $this->login($email, $password, $remember_me, $request);
     }
 
     /**
      * @throws RandomException
      */
-    private function login(string $email, string $password): Response
+    private function login(string $email, string $password, bool $remember_me, Request $request): Response
     {
         $user = $this->userRepository->findUserByEmail($email);
         if (!$user) {
@@ -82,12 +77,20 @@ class AuthController extends AbstractController
 
         $this->sessionRepository->save($session);
 
-        setcookie('connectory_session', $token, [
-            'path' => '/',
-            'secure' => true,
-            'httponly' => true,
-            'samesite' => 'Strict'
-        ]);
+
+        if ($remember_me) {
+            /*setcookie('connectory_session', $token, [
+                'path' => '/',
+                'secure' => true,
+                'httponly' => true,
+                'samesite' => 'Strict',
+                'expires' => time() + 60 * 60 * 24 * 365 * 5 // 5 years
+            ]);*/
+            setcookie('connectory_session', $token, time() + 60 * 60 * 24 * 365 * 5, '/', '', false, true);
+
+        } else {
+            setcookie('connectory_session', $token, 0, '/', '', false, true);
+        }
 
         return $this->redirectToRoute('root');
     }

@@ -145,8 +145,11 @@
                     <button type="button" class="search" style="background: linear-gradient(to top, #4B0082,rgb(146, 86, 206)); color:white; padding:5px 10px; text-decoration:none; border:1px solid #b366ff;">Search</button>
                 </div>
                 <div style="padding-bottom:10px;">
-                    <a href="{{ path('login') }}" style="color:#4B0082; padding:5px 10px; text-decoration:none;">login</a>
-                <!--    <a href="{{ path('register') }}" style="color:#4B0082; padding:5px 10px; text-decoration:none;">sign up</a>-->
+                    {% if isSignedIn %}
+                        <span style="padding:5px 2px; text-decoration:none;"><strong>{{ user }}</strong></span><span style="color:rgb(73,73,73); padding:5px 0; text-decoration:none;">({{ usrtxt2 }})</span><a href="{{ path('logout') }}" style="color:#4B0082; padding:5px 15px; text-decoration:none;">logout</a>
+                    {% else %}
+                        <a href="{{ path('login') }}" style="color:#4B0082; padding:5px 10px; text-decoration:none;">login</a><a href="{{ path('register') }}" style="color:#4B0082; padding:5px 10px; text-decoration:none;">sign up</a>
+                    {% endif %}
                 </div>
             </td>
         </tr>
@@ -161,7 +164,7 @@
                 <img src="{{ asset('usr/default.jpg') }}" alt="Profile Picture" style="width:50px; margin-right:10px;">
                 <div>
                     <div><strong>{{ user }}</strong></div>
-                    <div style="font-size:14px;">{{ usrtxt2 }}</div>
+                    <div style="font-size:14px;"><p style="color:rgb(73,73,73);">{{ usrtxt2 }}</p></div>
                 </div>
             </div>
         </div>
@@ -191,18 +194,5 @@
         </div>
     </div>
 </div>
-
-<!--<form method="POST" action="{{ path('auth_handler') }}">
-    <div class="fb-box">
-        <h1>fakebook</h1>
-        <input type="text" name="username" placeholder="Email or phone number" required />
-        <input type="password" name="password" placeholder="Password" required />
-
-        <div class="btns">
-            <button type="submit" name="action" value="login" class="login-btn">Log In</button>
-            <button type="submit" name="action" value="register" class="register-btn">Sign Up</button>
-        </div>
-    </div>
-</form>-->
 </body>
 </html>

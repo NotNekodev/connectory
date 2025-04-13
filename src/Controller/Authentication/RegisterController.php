@@ -11,6 +11,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\RouterInterface;
+use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class RegisterController extends AbstractController {
 
@@ -25,8 +28,11 @@ class RegisterController extends AbstractController {
         return $this->render('register.html.twig', []);
     }
 
+    /**
+     * @throws TransportExceptionInterface
+     */
     #[Route('/register_handler', name: 'register_handler', methods: ['POST'])]
-    public function register_handler(Request $request): Response {
+    public function register_handler(Request $request, RouterInterface $router, HttpClientInterface $httpClient): Response {
         $username = $request->request->get('username');
         $email = $request->request->get('email');
         $telephone = $request->request->get('phone');
@@ -49,9 +55,6 @@ class RegisterController extends AbstractController {
 
         $this->userRepository->save($user);
 
-        return $this->render('error/http-error.html.twig', [
-            'error_num' => Response::HTTP_OK,
-            'error_str' => 'OK'
-        ]);
+        return $this->redirectToRoute('root');
     }
 }

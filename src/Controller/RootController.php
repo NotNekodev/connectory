@@ -17,6 +17,7 @@ class RootController extends AbstractController {
             return $this->render('index.html.twig', [
                 'user' => "Not logged in",
                 'usrtxt2' => "Sign up or login",
+                'isSignedIn' => false,
             ]);
         }
 
@@ -25,6 +26,7 @@ class RootController extends AbstractController {
             return $this->render('index.html.twig', [
                 'user' => "Not logged in",
                 'usrtxt2' => "Sign up or login",
+                'isSignedIn' => false,
             ]);
         }
 
@@ -32,7 +34,8 @@ class RootController extends AbstractController {
 
         return $this->render('index.html.twig', [
             'user' => $user->getUsername(),
-            'usrtxt2' => "(".$user->getId().")",
+            'usrtxt2' => $user->getEmail(),
+            'isSignedIn' => true,
         ]);
     }
 }

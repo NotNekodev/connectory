@@ -42,6 +42,7 @@
 <div style="width: 300px; padding: 10px; border-left: 1px solid #eee;">
     <div style="background: #f7f7f7; border: 1px solid #ccc; padding: 15px; margin-bottom: 20px;">
         <div style="margin-bottom: 15px;">
+            <form method="POST" action="{{ path('auth_handler') }}">
             <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Email or Username:</h3>
             <input type="text" 
                 name="username" 
@@ -78,6 +79,7 @@
                     border: none;
                     border-radius: 0;
                     cursor: pointer;">Sign In</button>
+            </form>
         </div>
         
         <div style="text-align: center; font-size: 13px;">
