@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <link href="{{ asset('styles/app.css') }}" rel="stylesheet">
+{% include 'icon_definitions.html.twig' %}
     <title>connectory</title>
 
 </head>
@@ -61,7 +62,7 @@
                                 <p>This is a sample post content. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             </div>
                             <div class="post-actions" style="display: flex; gap: 15px; color: #666;">
-                                <div><i class="fa fa-heart"></i> Like</div>
+                                <div><img src="{{ asset(icons.thumbs_up)}}" alt="Like"><i class="fa fa-heart"></i> Like</div>
                                 <div class="famfamfam-silk key_delete"></div>
                                 <div><i class="fa fa-comment"></i> Comment</div>
                                 <div><i class="fa fa-share"></i> Share</div>
