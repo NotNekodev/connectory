@@ -74,6 +74,20 @@ class UserManagementService {
         return 0;
     }
 
+    public function getUser(): ?User {
+        $session = $this->getSession();
+        if (!$session) {
+            return null;
+        }
+
+        $user = $this->userRepository->find($session->getUser());
+        if (!$user) {
+            return null;
+        }
+
+        return $user;
+    }
+
     /**
      * Retrieves all sessions for a user
      * @param User $user The user whose sessions are to be retrieved

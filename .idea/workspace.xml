@@ -5,8 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="840657ce-fca6-4852-9efa-469d74a75ed1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Controller/Pages/AdminPageController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/admin-home.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20250412135449.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20250412153623.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20250412153817.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20250412213838.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20250412220152.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20250413211739.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Authentication/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Authentication/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/UserManagementService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/UserManagementService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,7 +228,7 @@
       <workItem from="1744732735903" duration="130000" />
       <workItem from="1744831643798" duration="3375000" />
       <workItem from="1744904973873" duration="126000" />
-      <workItem from="1744905115260" duration="4110000" />
+      <workItem from="1744905115260" duration="9553000" />
     </task>
     <servers />
   </component>

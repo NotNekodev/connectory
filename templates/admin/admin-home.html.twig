@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>admin panel - connectory</title>
+</head>
+<body>
+    <h1>Admin panel</h1>
+
+    <div>
+        <form method="POST" action="{{ path('admin_submit_handler') }}">
+            <label for="search">criteria:</label>
+            <input type="text" id="search" name="search" placeholder="Enter criteria">
+            <!-- dropdown for search type -->
+            <label for="type">type:</label>
+            <select id="type" name="type">
+                <option value="username">username</option>
+                <option value="email">email</option>
+                <option value="phone">phone number</option>
+                <option value="session">session token</option>
+                <option value="uid">user id</option>
+                <option value="uuid">uuid (guid)</option>
+            </select>
+
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <div id="user-info">
+        {% if user %}
+            <h2>User Information</h2>
+            <p>Username: {{ user.username }}</p>
+            <p>Email: {{ user.email }}</p>
+            <p>Phone: {{ user.telephone }}</p>
+            <p>User ID: {{ user.id }}</p>
+            <p>UUID: {{ user.uuid }}</p>
+            <p>Is Admin? {{ user.isAdmin }}</p>
+            <p>Created at: {{ user.created|date() }}</p>
+            <ul id="found_user_sessions">
+                {% for session in user.sessions %}
+                    <li>
+                        <p>Session Token: {{ session.id }}</p>
+                        <p>Created At: {{ session.createdAt|date() }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <h2>No User Found</h2>
+        {% endif %}
+    </div>
+</body>
+</html>

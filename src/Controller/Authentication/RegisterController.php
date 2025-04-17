@@ -95,6 +95,7 @@ class RegisterController extends AbstractController {
         $user->setPasswordHash(password_hash($passwd, PASSWORD_BCRYPT));
         $user->setCreated(new DateTime());
         $user->setUuid(Uuid::uuid4()->toString());
+        $user->setIsAdmin(false);
 
         $this->userRepository->save($user);
         
