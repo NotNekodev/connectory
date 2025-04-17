@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="840657ce-fca6-4852-9efa-469d74a75ed1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Service/UserManagementService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Authentication/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Authentication/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Authentication/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Authentication/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Authentication/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Authentication/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RootController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RootController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,8 +194,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PS-243.26053.13" />
-        <option value="bundled-php-predefined-a98d8de5180a-1ec7b7818973-com.jetbrains.php.sharedIndexes-PS-243.26053.13" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-PS-251.23774.436" />
+        <option value="bundled-php-predefined-a98d8de5180a-aaeaa8632555-com.jetbrains.php.sharedIndexes-PS-251.23774.436" />
       </set>
     </attachedChunks>
   </component>
@@ -217,7 +215,11 @@
       <workItem from="1744560747950" duration="166000" />
       <workItem from="1744560926388" duration="1342000" />
       <workItem from="1744562871058" duration="1460000" />
-      <workItem from="1744584888539" duration="2661000" />
+      <workItem from="1744584888539" duration="3530000" />
+      <workItem from="1744732735903" duration="130000" />
+      <workItem from="1744831643798" duration="3375000" />
+      <workItem from="1744904973873" duration="126000" />
+      <workItem from="1744905115260" duration="1626000" />
     </task>
     <servers />
   </component>

@@ -2,30 +2,19 @@
 
 namespace App\Controller;
 
-use App\Repository\SessionRepository;
+use App\Service\UserManagementService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
 
 class RootController extends AbstractController {
     #[Route('/', name: 'root')]
-    public function root(Request $request, SessionRepository $repo): Response {
-
-        $token = $request->cookies->get('connectory_session');
-        if (!$token) {
+    public function root(UserManagementService $ums): Response {
+        $session = $ums->getSession();
+        if ($session === null) {
             return $this->render('index.html.twig', [
                 'user' => "Not logged in",
-                'usrtxt2' => "Sign up or login",
-                'isSignedIn' => false,
-            ]);
-        }
-
-        $session = $repo->find($token);
-        if (!$session) {
-            return $this->render('index.html.twig', [
-                'user' => "Not logged in",
-                'usrtxt2' => "Sign up or login",
+                'usrtxt2' => "Log in or sign up",
                 'isSignedIn' => false,
             ]);
         }
