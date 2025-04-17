@@ -1,4 +1,4 @@
-# Webthingy
+# Connectory
 
 ## How 2 run
 
