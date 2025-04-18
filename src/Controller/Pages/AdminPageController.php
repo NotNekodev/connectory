@@ -19,13 +19,40 @@ class AdminPageController extends AbstractController {
         $user = $ums->getUser();
 
         if (!$user) {
-            return $this->redirectToRoute('root');
+            $session = $ums->getSession();
+            if ($session === null) {
+                return $this->render('error/not-allowed.html.twig', [
+                    'user' => "Not logged in",
+                    'usrtxt2' => "Log in or sign up",
+                    'isSignedIn' => false,
+                ]);
+            }
+
+            $user = $session->getUser();
+
+            return $this->render('error/not-allowed.html.twig', [
+                'user' => $user->getUsername(),
+                'usrtxt2' => $user->getEmail(),
+                'isSignedIn' => true,
+            ]);
         }
 
         if (!$user->isAdmin()) {
-            return $this->render('error/http-error.html.twig', [
-                'error_str' => "403 Forbidden",
-                'error_num' => Response::HTTP_FORBIDDEN
+            $session = $ums->getSession();
+            if ($session === null) {
+                return $this->render('error/not-allowed.html.twig', [
+                    'user' => "Not logged in",
+                    'usrtxt2' => "Log in or sign up",
+                    'isSignedIn' => false,
+                ]);
+            }
+
+            $user = $session->getUser();
+
+            return $this->render('error/not-allowed.html.twig', [
+                'user' => $user->getUsername(),
+                'usrtxt2' => $user->getEmail(),
+                'isSignedIn' => true,
             ]);
         }
 
@@ -66,5 +93,28 @@ class AdminPageController extends AbstractController {
         return $this->render('admin/admin-home.html.twig', [
             'user' => $user
         ]);
+    }
+
+    #[Route('/admin_manage', name: 'admin_manage', methods: ['POST'])]
+    public function adminDeleteUser(Request $request, UserManagementService $ums, UserRepository $userRepository): Response {
+
+        if (!$ums->getUser()->isAdmin()) {
+            return new Response(null, Response::HTTP_FORBIDDEN);
+        }
+
+        $action = $request->query->get('action');
+
+        $userId = $request->query->get('uuid');
+        $user = $userRepository->findOneBy(['uuid' => $userId]);
+
+        if ($action === 'delete') {
+            $ums->deleteUser($user);
+        } else if ($action === 'promote') {
+            $user->setIsAdmin(true);
+        } else if ($action === 'demote') {
+            $user->setIsAdmin(false);
+        }
+
+        return $this->redirectToRoute('admin');
     }
 }

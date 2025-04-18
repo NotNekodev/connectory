@@ -78,16 +78,10 @@ class AuthController extends AbstractController
             ]);
         }
 
-        $uid = $user->getId();
-        $username = $user->getUsername();
-        $created = $user->getCreated();
         $passwd_hash = $user->getPasswordHash();
-        $uuid = $user->getUuid();
-        $uemail = $user->getEmail();
         if (!$user->getTelephone()) {
             $user->setTelephone('{NO DATA}');
         }
-        $tel = $user->getTelephone();
 
         if (!password_verify($password, $passwd_hash)) {
             $errors['password'] = 'Invalid password';

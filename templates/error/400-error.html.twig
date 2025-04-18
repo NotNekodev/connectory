@@ -135,7 +135,7 @@
         'phone_edit': 'icons/phone_edit.png',
         'trophy': 'icons/trophy.png'
     } %}
-    <title>connectory</title>
+    <title>connectory - error</title>
 </head>
 <body>
 <div class="header">
@@ -163,37 +163,20 @@
 
 <div class="content" style="background:white; height: 100vh;">
     <div style="display: flex; width: 100%; height: 100%;">
-        <!-- Sidebar -->
-        <div style="width: 180px; padding: 20px; border-right: 1px solid #eee;">
-            <div style="display:flex; align-items:center;">
-                <img src="{{ asset('usr/default.jpg') }}" alt="Profile Picture" style="width:50px; margin-right:10px;">
-                <div>
-                    <div><strong>{{ user }}</strong></div>
-                    <div style="font-size:14px;"><p style="color:rgb(73,73,73);">{{ usrtxt2 }}</p></div>
-                </div>
-            </div>
-        </div>
-
         <!-- Main content -->
         <div style="flex: 1; padding: 20px;">
             <div>
-                <div style="border: 1px solid #ccc; padding: 15px;height:200px; margin-bottom: 20px;">
+                <div style="border: 1px solid #ccc; padding: 5px;height:350px; margin-bottom: 20px;">
+                    <h1 style="text-align: center;">Oops! A client error occurred</h1>
+                    <h2 style="text-align: center;">If you want some more information:</h2>
+                    <h3 style="text-align: center;">{{ error_number }}</h3>
+                    <h3 style="text-align: center;">{{ error_text }}</h3>
+                    <p style="text-align: center;">If this is page is returning, you need to figure something out! We're sorry this is your fault</p>
 
-                </div>
-            </div>
-        </div>
-
-        <!-- Third column -->
-        <div style="width: 300px; padding: 10px; border-left: 1px solid #eee;">
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-                <div style="border: 1px solid #ccc; padding: 10px;">
-                    <h3 style="text-align:center">Site Updates</h3>
-                    <p>updates and stuff go here</p>
-                </div>
-
-                <div style="border: 1px solid #ccc; padding: 10px;">
-                    <h3>Box 3</h3>
-                    <p>Content for box 3</p>
+                    <div style="border: 1px solid #ccc; padding: 15px;height:75px; margin-bottom: 20px;">
+                        <p style="text-align: center;"><em>{{ random_quote }}</em></p>
+                        <p style="text-align: center;"><b>- 2025, claude.ai</b></p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -4,19 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="840657ce-fca6-4852-9efa-469d74a75ed1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/Pages/AdminPageController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/admin-home.html.twig" afterDir="false" />
+    <list default="true" id="840657ce-fca6-4852-9efa-469d74a75ed1" name="Changes" comment="feat: [backend/frontend] added simple admin panel with user search">
+      <change afterPath="$PROJECT_DIR$/src/Controller/ErrorController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/error/400-error.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/error/500-error.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/error/internal-error.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/error/not-allowed.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/framework.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/migrations/Version20250412135449.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/migrations/Version20250412153623.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/migrations/Version20250412153817.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/migrations/Version20250412213838.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/migrations/Version20250412220152.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20250413211739.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Authentication/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Authentication/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/UserManagementService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/UserManagementService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Authentication/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Authentication/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Authentication/LogoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Authentication/LogoutController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Pages/AdminPageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Pages/AdminPageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/admin-home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/admin-home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/error/http-error.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -194,6 +203,12 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\rapha\PhpstormProjects\webthingy\templates\error" />
+      <recent name="C:\Users\rapha\PhpstormProjects\webthingy\public" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml.dist" scope="XML" use_alternative_configuration_file="true" />
@@ -228,11 +243,26 @@
       <workItem from="1744732735903" duration="130000" />
       <workItem from="1744831643798" duration="3375000" />
       <workItem from="1744904973873" duration="126000" />
-      <workItem from="1744905115260" duration="9553000" />
+      <workItem from="1744905115260" duration="9708000" />
+      <workItem from="1744928896823" duration="7443000" />
+      <workItem from="1744979501939" duration="13540000" />
     </task>
+    <task id="LOCAL-00001" summary="feat: [backend/frontend] added simple admin panel with user search">
+      <option name="closed" value="true" />
+      <created>1744919052185</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1744919052185</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: [backend/frontend] added simple admin panel with user search" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: [backend/frontend] added simple admin panel with user search" />
   </component>
 </project>

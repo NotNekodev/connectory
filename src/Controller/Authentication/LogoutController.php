@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class LogoutController extends AbstractController
 {
     #[Route('/logout', name: 'logout')]
-    public function login_router(Request $request, SessionRepository $sessionRepository): Response {
+    public function logout_router(Request $request, SessionRepository $sessionRepository): Response {
 
         $token = $request->cookies->get('connectory_session');
         if (!$token) {

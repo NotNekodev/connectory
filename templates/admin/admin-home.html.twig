@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
     <title>admin panel - connectory</title>
+    <link rel="icon" type="image/png" href="{{ asset('/favicon/favicon-96x96.png') }}" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="{{ asset('/favicon/favicon.svg') }}" />
+    <link rel="shortcut icon" href="{{ asset('/favicon/favicon.ico') }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/favicon/apple-touch-icon.png') }}" />
+    <link rel="manifest" href="{{ asset('/favicon/site.webmanifest') }}" />
 </head>
 <body>
     <h1>Admin panel</h1>
@@ -43,6 +48,20 @@
                     </li>
                 {% endfor %}
             </ul>
+
+            <form method="POST" action="{{ path('admin_manage', { 'uuid': user.uuid, 'action': 'delete' }) }}">
+                <button type="submit">Delete User</button>
+            </form>
+
+            {% if user.isAdmin %}
+                <form method="POST" action="{{ path('admin_manage', { 'uuid': user.uuid, 'action': 'demote' }) }}">
+                    <button type="submit">Demote from Admin</button>
+                </form>
+            {% else %}
+                <form method="POST" action="{{ path('admin_manage', { 'uuid': user.uuid, 'action': 'promote' }) }}">
+                    <button type="submit">Promote to Admin</button>
+                </form>
+            {% endif %}
         {% else %}
             <h2>No User Found</h2>
         {% endif %}
