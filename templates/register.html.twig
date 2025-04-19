@@ -25,29 +25,33 @@
     <table style="width:100%;">
         <tr>
             <td style="width:50%; text-align:left;">
-                <img src="{{ asset('img/logo.png') }}" alt="Logo" style="height:50px; padding-bottom:15px;">
+                <img src="{{ asset('img/logo.png') }}" alt="Logo" style="height:42.5px; padding-bottom:13px;">
             </td>
-            <td style="width:50%; text-align:right;">
-                <div style="margin-bottom:10px;">
-                    <input type="text" placeholder="Search..." style="padding:5px; width:70%;">
-                    <button type="button" class="search" style="background: linear-gradient(to top, #4B0082,rgb(146, 86, 206)); color:white; padding:5px 10px; text-decoration:none; border:1px solid #b366ff;">Search</button>
-                </div>
-                <div style="padding-bottom:10px;">
-                    <a href="{{ path('login') }}" style="color:#4B0082; padding:5px 10px; text-decoration:none;">login</a>
-                    <a href="{{ path('register') }}" style="color:#4B0082; padding:5px 10px; text-decoration:none;">sign up</a>
+            <td style="width:50%; text-align:right; vertical-align:top; position:relative;">
+                <div style="display: flex; justify-content: flex-end; align-items: start; gap: 13px;">
+                    <div style="display: flex; flex-direction: column; align-items: flex-end; margin-right: 13px;">
+                        <div style="margin-bottom:4px;">
+                            <input type="text" placeholder="Search..." style="padding:4px; width:340px; margin-right:4px;">
+                            <button type="button" class="search" style="background: linear-gradient(to top, #4B0082,rgb(146, 86, 206)); color:white; padding:4px 8px; text-decoration:none; border:1px solid #b366ff; font-size: 0.85em;">Search</button>
+                        </div>
+                        <div style="font-size: 0.85em;">
+                            <a href="{{ path('login') }}" style="color:#4B0082; text-decoration:none; margin-right: 8px;">login</a>
+                            <a href="{{ path('register') }}" style="color:#4B0082; text-decoration:none;">sign up</a>
+                        </div>
+                    </div>
                 </div>
             </td>
         </tr>
     </table>
 </div>
 
-<div class="content" style="background:white; height: 100vh;">
+<div class="content" style="background:white; height: 85vh;">
     <div style="display: flex; width: 100%; height: 100%;">
 
         <!-- Main content -->
-        <div style="flex: 1; padding: 10px;">
+        <div style="flex: 1; padding: 8.5px;">
             <div>
-                <div style="border: 1px solid #ccc; padding: 15px; height: 200px; margin-bottom: 20px;">
+                <div style="border: 0.85px solid #ccc; padding: 12.75px; height: 170px; margin-bottom: 17px;">
                     <h3>Registration!!!!</h3>
                     <p>information about the site and stuff here</p>
                 </div>
@@ -55,11 +59,11 @@
         </div>
 
 <!-- Third column -->
-<div style="width: 300px; padding: 10px; border-left: 1px solid #eee;">
-    <div style="background: #f7f7f7; border: 1px solid #ccc; padding: 15px; margin-bottom: 20px;">
-        <div style="margin-bottom: 15px;">
+<div style="width: 21.25%; padding: 0.53125rem; border-left: 0.053125rem solid #eee;">
+    <div style="background: #f7f7f7; border: 0.053125rem solid #ccc; padding: 0.796875rem; margin-bottom: 1.0625rem;">
+        <div style="margin-bottom: 0.796875rem;">
             <form method="POST" action="{{ path('register_handler') }}" id="registrationForm">
-                <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Username:</h3>
+                <h3 style="color: #4B0082; font-size: 0.74375rem; margin-bottom: 0.265625rem;">Username:</h3>
                 <input type="text"
                        name="username"
                        id="username_field"
@@ -68,13 +72,13 @@
                        value="{{ old_data.username|default('') }}"
                        class="{{ errors.username is defined ? 'error-field' : '' }}"
                        style="width: 95%;
-                           padding: 6px;
-                           border: 1px solid #ccc;
+                           padding: 0.31875rem;
+                           border: 0.053125rem solid #ccc;
                            border-radius: 0;
-                           margin-bottom: 5px;" />
+                           margin-bottom: 0.265625rem;" />
                 <div id="errortxt_field_username" class="error-message">{{ errors.username|default('') }}</div>
 
-                <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Email Address:</h3>
+                <h3 style="color: #4B0082; font-size: 0.74375rem; margin-bottom: 0.265625rem;">Email Address:</h3>
                 <input type="text"
                        name="email"
                        id="email_field"
@@ -83,13 +87,13 @@
                        value="{{ old_data.email|default('') }}"
                        class="{{ errors.email is defined ? 'error-field' : '' }}"
                        style="width: 95%;
-                           padding: 6px;
-                           border: 1px solid #ccc;
+                           padding: 0.31875rem;
+                           border: 0.053125rem solid #ccc;
                            border-radius: 0;
-                           margin-bottom: 5px;" />
+                           margin-bottom: 0.265625rem;" />
                 <div id="errortxt_field_email" class="error-message">{{ errors.email|default('') }}</div>
 
-                <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Phone Number:</h3>
+                <h3 style="color: #4B0082; font-size: 0.74375rem; margin-bottom: 0.265625rem;">Phone Number:</h3>
                 <input type="text"
                        name="phone"
                        id="phone_field"
@@ -97,13 +101,13 @@
                        value="{{ old_data.phone|default('') }}"
                        class="{{ errors.phone is defined ? 'error-field' : '' }}"
                        style="width: 95%;
-                           padding: 6px;
-                           border: 1px solid #ccc;
+                           padding: 0.31875rem;
+                           border: 0.053125rem solid #ccc;
                            border-radius: 0;
-                           margin-bottom: 5px;" />
+                           margin-bottom: 0.265625rem;" />
                 <div id="errortxt_field_phone" class="error-message">{{ errors.phone|default('') }}</div>
 
-                <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Password:</h3>
+                <h3 style="color: #4B0082; font-size: 0.74375rem; margin-bottom: 0.265625rem;">Password:</h3>
                 <input type="password"
                        name="password"
                        id="password_field"
@@ -111,13 +115,13 @@
                        required
                        class="{{ errors.password is defined ? 'error-field' : '' }}"
                        style="width: 95%;
-                           padding: 6px;
-                           border: 1px solid #ccc;
+                           padding: 0.31875rem;
+                           border: 0.053125rem solid #ccc;
                            border-radius: 0;
-                           margin-bottom: 5px;" />
+                           margin-bottom: 0.265625rem;" />
                 <div id="errortxt_field_password" class="error-message">{{ errors.password|default('') }}</div>
 
-                <h3 style="color: #4B0082; font-size: 14px; margin-bottom: 5px;">Confirm Password:</h3>
+                <h3 style="color: #4B0082; font-size: 0.74375rem; margin-bottom: 0.265625rem;">Confirm Password:</h3>
                 <input type="password"
                        name="confirm_password"
                        id="confirm_password_field"
@@ -125,10 +129,10 @@
                        required
                        class="{{ errors.confirm_password is defined ? 'error-field' : '' }}"
                        style="width: 95%;
-                           padding: 6px;
-                           border: 1px solid #ccc;
+                           padding: 0.31875rem;
+                           border: 0.053125rem solid #ccc;
                            border-radius: 0;
-                           margin-bottom: 5px;" />
+                           margin-bottom: 0.265625rem;" />
                 <div id="errortxt_field_confirm_password" class="error-message">{{ errors.confirm_password|default('') }}</div>
             
                 <button type="submit" 
@@ -136,7 +140,7 @@
                     style="width: 100%;
                     background: linear-gradient(to top, #4B0082, rgb(146, 86, 206));
                     color: white;
-                    padding: 6px 0;
+                    padding: 0.31875rem 0;
                     border: none;
                     border-radius: 0;
                     cursor: pointer;">Register</button>
@@ -145,7 +149,7 @@
         </div>
     </div>
 
-    <div style="border: 1px solid #ccc; padding: 15px;">
+    <div style="border: 0.053125rem solid #ccc; padding: 0.796875rem;">
         <h3>Site Updates</h3>
         <p>updates and stuff go here</p>
     </div>

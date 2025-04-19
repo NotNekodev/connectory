@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Favicon and stylesheet links remain unchanged -->
     <link rel="icon" type="image/png" href="{{ asset('/favicon/favicon-96x96.png') }}" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="{{ asset('/favicon/favicon.svg') }}" />
     <link rel="shortcut icon" href="{{ asset('/favicon/favicon.ico') }}" />
@@ -14,18 +15,41 @@
     <table style="width:100%;">
         <tr>
             <td style="width:50%; text-align:left;">
-                <img src="{{ asset('img/logo.png') }}" alt="Logo" style="height:50px; padding-bottom:15px;">
+                <img src="{{ asset('img/logo.png') }}" alt="Logo" style="height:42.5px; padding-bottom:13px;">
             </td>
-            <td style="width:50%; text-align:right;">
-                <div style="margin-bottom:10px;">
-                    <input type="text" placeholder="Search..." style="padding:5px; width:70%;">
-                    <button type="button" class="search" style="background: linear-gradient(to top, #4B0082,rgb(146, 86, 206)); color:white; padding:5px 10px; text-decoration:none; border:1px solid #b366ff;">Search</button>
-                </div>
-                <div style="padding-bottom:10px;">
+            <td style="width:50%; text-align:right; vertical-align:top; position:relative;">
+                <div style="display: flex; justify-content: flex-end; align-items: start; gap: 13px;">
+                    <div style="display: flex; flex-direction: column; align-items: flex-end; margin-right: 13px;">
+                        <div style="margin-bottom:4px;">
+                            <input type="text" placeholder="Search..." style="padding:4px; width:340px; margin-right:4px;">
+                            <button type="button" class="search" style="background: linear-gradient(to top, #4B0082,rgb(146, 86, 206)); color:white; padding:4px 8px; text-decoration:none; border:1px solid #b366ff; font-size: 0.85em;">Search</button>
+                        </div>
+                        {% if isSignedIn %}
+                        <div style="font-size: 0.85em;">
+                            <a href="{{ path('logout') }}" style="color: #4B0082; text-decoration: none;">Logout</a>
+                        </div>
+                        {% else %}
+                        <div style="font-size: 0.85em;">
+                            <a href="{{ path('login') }}" style="color:#4B0082; text-decoration:none; margin-right: 8px;">login</a>
+                            <a href="{{ path('register') }}" style="color:#4B0082; text-decoration:none;">sign up</a>
+                        </div>
+                        {% endif %}
+                    </div>
                     {% if isSignedIn %}
-                        <span style="padding:5px 2px; text-decoration:none;"><strong>{{ user }}</strong></span><span style="color:rgb(73,73,73); padding:5px 0; text-decoration:none;">({{ usrtxt2 }})</span><a href="{{ path('logout') }}" style="color:#4B0082; padding:5px 15px; text-decoration:none;">logout</a>
-                    {% else %}
-                        <a href="{{ path('login') }}" style="color:#4B0082; padding:5px 10px; text-decoration:none;">login</a><a href="{{ path('register') }}" style="color:#4B0082; padding:5px 10px; text-decoration:none;">sign up</a>
+                    <div class="dropdown" style="position: relative; display: inline-block;">
+                        <img src="{{ asset('usr/default.jpg') }}" alt="Profile Picture" style="width:60px; cursor: pointer;" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'">
+                        <div style="display: none; position: absolute; right: 0; background-color: white; min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; border: 1px solid #ccc; border-radius: 4px; margin-top: 8px; font-size: 0.85em;">
+                            <div style="position: absolute; top: -8px; right: 13px; width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 8px solid white;"></div>
+                            <div style="position: absolute; top: -9px; right: 12px; width: 0; height: 0; border-left: 9px solid transparent; border-right: 9px solid transparent; border-bottom: 9px solid #ccc; z-index: -1;"></div>
+                            <div style="padding: 8px 12px; border-bottom: 1px solid #eee;">
+                                <strong>{{ user }}</strong><br>
+                                <span style="color:rgb(73,73,73);">{{ usrtxt2 }}</span>
+                            </div>
+                            <a href="#" style="display: block; padding: 8px 12px; color: #333; text-decoration: none; border-bottom: 1px solid #eee;">Profile</a>
+                            <a href="#" style="display: block; padding: 8px 12px; color: #333; text-decoration: none; border-bottom: 1px solid #eee;">Settings</a>
+                            <a href="#" style="display: block; padding: 8px 12px; color: #333; text-decoration: none;">Help</a>
+                        </div>
+                    </div>
                     {% endif %}
                 </div>
             </td>
@@ -36,34 +60,28 @@
 <div class="content" style="background:white; height: 100vh;">
     <div style="display: flex; width: 100%; height: 100%;">
         <!-- Sidebar -->
-        <div style="width: 180px; padding: 20px; border-right: 1px solid #eee;">
-            <div style="display:flex; align-items:center;">
-                <img src="{{ asset('usr/default.jpg') }}" alt="Profile Picture" style="width:50px; margin-right:10px;">
-                <div>
-                    <div><strong>{{ user }}</strong></div>
-                    <div style="font-size:14px;"><p style="color:rgb(73,73,73);">{{ usrtxt2 }}</p></div>
-                </div>
-            </div>
+        <div style="width: 153px; padding: 17px; border-right: 1px solid #eee;">
+        <p>asdasd</p>
         </div>
 
         <!-- Main content -->
-        <div style="flex: 1; padding: 20px;">
+        <div style="flex: 1; padding: 17px;">
             <div>
-                <div style="border: 1px solid #ccc; padding: 15px;height:200px; margin-bottom: 20px;">
+                <div style="border: 1px solid #ccc; padding: 13px;height:170px; margin-bottom: 17px;">
 
                 </div>
             </div>
         </div>
 
         <!-- Third column -->
-        <div style="width: 300px; padding: 10px; border-left: 1px solid #eee;">
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-                <div style="border: 1px solid #ccc; padding: 10px;">
+        <div style="width: 255px; padding: 8px; border-left: 1px solid #eee;">
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="border: 1px solid #ccc; padding: 8px; font-size: 0.85em;">
                     <h3 style="text-align:center">Site Updates</h3>
                     <p>updates and stuff go here</p>
                 </div>
 
-                <div style="border: 1px solid #ccc; padding: 10px;">
+                <div style="border: 1px solid #ccc; padding: 8px; font-size: 0.85em;">
                     <h3>Box 3</h3>
                     <p>Content for box 3</p>
                 </div>
