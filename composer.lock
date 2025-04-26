@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9001b203a9bef38bd1b69d70ad714499",
+    "content-hash": "afeb1df76838f8ce01437aef87177584",
     "packages": [
         {
             "name": "brick/math",
@@ -1431,6 +1431,56 @@
                 }
             ],
             "time": "2025-03-06T22:45:56+00:00"
+        },
+        {
+            "name": "legacy-icons/famfamfam-silk",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/legacy-icons/famfamfam-silk.git",
+                "reference": "354890c67b22e98d38e11fcf2763b0b19273e731"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/legacy-icons/famfamfam-silk/zipball/354890c67b22e98d38e11fcf2763b0b19273e731",
+                "reference": "354890c67b22e98d38e11fcf2763b0b19273e731",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "component": {
+                    "files": [
+                        "dist/*"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "CC-BY-2.5"
+            ],
+            "authors": [
+                {
+                    "name": "t1st3",
+                    "email": "contact@tiste.org",
+                    "homepage": "http://www.tiste.org/",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "FamFamFam Silk icon pack",
+            "homepage": "https://github.com/legacy-icons/famfamfam-silk",
+            "keywords": [
+                "famfamfam",
+                "gif",
+                "icon",
+                "img",
+                "png",
+                "silk"
+            ],
+            "support": {
+                "issues": "https://github.com/legacy-icons/famfamfam-silk/issues/",
+                "source": "https://github.com/legacy-icons/famfamfam-silk/tree/1.0.0"
+            },
+            "time": "2016-02-18T10:57:21+00:00"
         },
         {
             "name": "monolog/monolog",
